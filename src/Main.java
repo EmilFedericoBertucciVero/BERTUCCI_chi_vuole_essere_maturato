@@ -1,6 +1,6 @@
 public class Main {
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         ApiClient apiClient = new ApiClient();
 

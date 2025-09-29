@@ -10,7 +10,7 @@ public class ApiClient {
 
     public String fetchQuestions(int amount, String difficulty, String type){
 
-        String url = "https://opendb.com/api.php?amount" + amount + "&difficulty" + difficulty + "&type" + type;
+        String url = "https://opentdb.com/api.php?amount=" + amount + "&difficulty" + difficulty + "&type" + type;
 
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(url))
