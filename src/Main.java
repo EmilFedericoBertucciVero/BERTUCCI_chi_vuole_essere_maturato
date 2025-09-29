@@ -4,7 +4,18 @@ public class Main {
 
         ApiClient apiClient = new ApiClient();
 
-        System.out.println(apiClient.fetchQuestions(10,"easy","multiple"));
+        ApiResponse questions = apiClient.fetchQuestions(10, "easy", "multiple");
+
+        printOutQuestions(questions);
+
+    }
+
+    public static void printOutQuestions(ApiResponse questions) {
+
+        for(ApiQuestion q : questions.results){
+            System.out.println(q.question);
+            System.out.println("Risposta corretta: " + q.correctAnswer);
+        }
 
     }
 
