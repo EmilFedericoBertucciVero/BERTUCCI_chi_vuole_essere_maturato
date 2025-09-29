@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -8,7 +10,7 @@ public class ApiClient {
 
     private final HttpClient client = HttpClient.newHttpClient();
 
-    public String fetchQuestions(int amount, String difficulty, String type){
+    public ApiResponse fetchQuestions(int amount, String difficulty, String type){
 
         String url = "https://opentdb.com/api.php?amount=" + amount + "&difficulty" + difficulty + "&type" + type;
 
@@ -33,7 +35,11 @@ public class ApiClient {
 
         }
 
-        return resp.body();
+        Gson gson = new Gson();
+
+        ApiResponse response = gson.fromJson(resp.body(), ApiResponse.class);
+
+        return response;
 
     }
 
